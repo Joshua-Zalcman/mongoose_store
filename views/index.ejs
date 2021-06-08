@@ -12,7 +12,9 @@
     <% products.forEach((product,index)=>{%>
     <article>
       <a href="/products/<%=product._id%>"><%=product.name%></a><br />
-      <img src="<%=product.img%>" alt="<%=product.name%>" />
+      <a href="/products/<%=product._id%>"
+        ><img src="<%=product.img%>" alt="<%=product.name%>" /></a
+      ><br />
       <p>Price: $<%=product.price%></p>
       <p>Quantity: <%=product.qty%></p>
       <button>Buy</button>

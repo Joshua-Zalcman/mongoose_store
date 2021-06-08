@@ -39,7 +39,7 @@ app.get('/products', (req, res) => {
 //create
 app.post('/products', (req, res) => {
   Product.create(req.body, (error, createdProduct) => {
-    res.send(createdProduct);
+    res.redirect('/products');
   });
 })
 
