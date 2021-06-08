@@ -5,22 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mongoose Store</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <style>
+      .col {
+        margin: auto;
+      }
+    </style>
   </head>
   <body>
-    <h1>All Products</h1>
-
-    <% products.forEach((product,index)=>{%>
-    <article>
-      <a href="/products/<%=product._id%>"><%=product.name%></a><br />
-      <a href="/products/<%=product._id%>"
-        ><img src="<%=product.img%>" alt="<%=product.name%>" /></a
-      ><br />
-      <p>Price: $<%=product.price%></p>
-      <p>Quantity: <%=product.qty%></p>
-      <button>Buy</button>
-    </article>
-    <br />
-    <%})%>
-    <a href="/products/new">Add New Product</a>
+    <div class="containter valign center">
+      <h1>All Products</h1>
+      <div class="container">
+        <a href="/products/new" class="btn">Add New Product</a>
+      </div>
+      <div class="row valign-wrapper">
+        <div class="col s10 m6 l4">
+          <% products.forEach((product,index)=>{%>
+          <a href="/products/<%=product._id%>"
+            ><article class="card">
+              <h3><%=product.name%></h3>
+              <img src="<%=product.img%>" alt="<%=product.name%>" /></article
+          ></a>
+          <br />
+          <%})%>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

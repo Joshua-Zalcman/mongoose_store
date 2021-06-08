@@ -1,17 +1,17 @@
 // dependencies
-const express = require('express')
-const mongoose = require('mongoose')
-const methodOverride = require('method-override')
+const express = require('express');
+const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const env = require('dotenv').config();
-const Product = require('./models/products')
-const seed = require('./models/seed')
+const Product = require('./models/products');
+const seed = require('./models/seed');
 
-const app = express()
-const db = mongoose.connection
+const app = express();
+const db = mongoose.connection;
 
 // env variables
-const PORT = process.env.PORT || 3000
-const MONGODB_URI = process.env.MONGODB_URI
+const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 // mongoose connection
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
@@ -35,27 +35,28 @@ app.get('/products', (req, res) => {
       products: foundProducts
     });
   });
-})
-//create
-app.post('/products', (req, res) => {
-  Product.create(req.body, (error, createdProduct) => {
-    res.redirect('/products');
-  });
-})
-
-// //seed
-// app.post('/products/seed', (req, res) => {
-//   req.body = seed;
-//   Product.create(req.body, (error, createdProduct) => {
-//     res.send(createdProduct);
-//   });
-// })
+});
+//new
+app.get('/products/new', (req, res) => {
+  res.render('new.ejs');
+});
 //delete
 app.delete('/products/:id', (req, res) => {
   Product.findByIdAndDelete(req.params.id, (error, deletedProduct) => {
-    res.send({ success: true });
+    //res.send({ success: true });
+    res.redirect('/products');
   });
-})
+});
+
+//seed
+app.get('/products/seed', (req, res) => {
+  Product.deleteMany({}, (error, allProducts) => { });
+
+  Product.create(seed, (error, data) => {
+    res.redirect('/products');
+  });
+});
+
 //update
 app.put('/products/:id', (req, res) => {
   Product.findByIdAndUpdate(
@@ -63,27 +64,34 @@ app.put('/products/:id', (req, res) => {
     req.body,
     { new: true },
     (error, updatedProduct) => {
-      res.send(updatedProduct);
+      res.redirect(`/products/${req.params.id}`);
     }
-  )
-})
+  );
+});
+//create
+app.post('/products', (req, res) => {
+  Product.create(req.body, (error, createdProduct) => {
+    res.redirect('/products');
+  });
+});
 //edit
 app.get('/products/:id/edit', (req, res) => {
-  res.send('Hi I am you')
-})
-//new
-app.get('/products/new', (req, res) => {
-  res.render('new.ejs')
-})
+  Product.findById(req.params.id, (error, foundProductToEdit) => {
+    res.render('edit.ejs', {
+      product: foundProductToEdit
+    });
+  });
+});
+
 //get by id - show
 app.get('/products/:id', (req, res) => {
   Product.findById(req.params.id, (error, foundProduct) => {
     res.render('show.ejs', { product: foundProduct });
   });
-})
+});
 
 // listen
 app.listen(PORT, () => {
-  console.log(`express listening on port ${PORT}`)
+  console.log(`express listening on port ${PORT}`);
 
-})
+});;
