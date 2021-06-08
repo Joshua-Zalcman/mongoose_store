@@ -16,13 +16,17 @@
       .card {
         margin: 0 auto;
       }
+      img {
+        background-color: white;
+      }
     </style>
   </head>
   <body>
-    <div class="container valign center blue">
+    <div class="container valign center">
       <div class="row">
         <div class="col s12">
-          <article class="card cyan">
+          <br />
+          <article class="card hoverable cyan lighten-4">
             <div class="card-image">
               <img src="<%=product.img%>" alt="<%=product.name%>" />
               <%if(product.qty>0){%>
@@ -63,18 +67,19 @@
                 <input
                   type="submit"
                   value="Buy"
-                  class="btn-floating halfway-fab btn-large"
+                  class="btn-floating halfway-fab btn-large cyan darken-3"
                 />
               </form>
 
               <%}else{%>
-              <div class="col s4"><p>Out Of Stock</p></div>
+              <p>Out Of Stock</p>
 
               <%}%>
             </div>
             <h1 class="card-title"><%=product.name%></h1>
             <div class="card-content">
               <p><%=product.description%></p>
+              <br />
               <p>Price: $<%=product.price%></p>
               <p>Quantity: <%=product.qty%></p>
             </div>
@@ -95,7 +100,7 @@
                 <div class="col s8">
                   <a
                     href="/products/<%=product._id%>/edit"
-                    class="btn btn-block yellow"
+                    class="btn btn-block yellow black-text"
                     >Edit</a
                   >
                 </div>
@@ -106,7 +111,7 @@
           <br />
         </div>
       </div>
+      <a href="/products" class="btn">Go Back</a>
     </div>
-    <a href="/products" class="btn">Go Back</a>
   </body>
 </html>
