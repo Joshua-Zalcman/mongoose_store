@@ -15,32 +15,31 @@
       <h1>Edit Hat</h1>
       <form action="/products/<%=product._id%>?_method=PUT" method="POST">
         <label
-          ><input type="text" name="name" value="<%=product.name%>" /><span
-            >Name</span
-          ></label
+          ><span>Name</span
+          ><input type="text" name="name" value="<%=product.name%>" /></label
         ><br />
         <label
+          ><span>Description</span
           ><input
             type="text"
             name="description"
-            value="<%=product.description%>"
-          /><span>Description</span></label
+            value="<%=product.description%>" /></label
         ><br />
         <label
-          ><input type="text" name="img" value="<%=product.img%>" /><span
-            >Image</span
-          ></label
+          ><span>Image</span
+          ><input type="text" name="img" value="<%=product.img%>" /></label
         ><br />
         <label
-          ><input type="number" name="price" value="<%=product.price%>" /><span
-            >Price</span
-          ></label
+          ><span>Price</span
+          ><input
+            type="number"
+            name="price"
+            value="<%=product.price%>" /></label
         ><br />
         <label
-          ><input type="number" name="qty" value="<%=product.qty%>" /><span
-            >Quantity</span
-          ></label
-        ><br />
+          ><span>Quantity</span
+          ><input type="number" name="qty" value="<%=product.qty%>" /></label
+        ><br /><br />
         <input type="submit" value="Edit Hat" class="btn" />
       </form>
     </div>

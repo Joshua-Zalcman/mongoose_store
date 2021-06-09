@@ -14,19 +14,16 @@
     <div class="container">
       <h1>Add New Hat</h1>
       <form action="/products" method="POST">
-        <label><input type="text" name="name" /><span>Name</span></label
-        ><br />
+        <label><span>Name</span><input type="text" name="name" /></label><br />
         <label
-          ><input type="text" name="description" /><span
-            >Description</span
-          ></label
+          ><span>Description</span
+          ><input type="text" name="description" /></label
         ><br />
-        <label><input type="text" name="img" /><span>Image</span></label
+        <label><span>Image</span><input type="text" name="img" /></label><br />
+        <label><span>Price</span><input type="number" name="price" /></label
         ><br />
-        <label><input type="number" name="price" /><span>Price</span></label
-        ><br />
-        <label><input type="number" name="qty" /><span>Quantity</span></label
-        ><br />
+        <label><span>Quantity</span><input type="number" name="qty" /></label
+        ><br /><br />
         <input type="submit" value="Add New Hat" class="btn" />
       </form>
     </div>
