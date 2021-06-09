@@ -24,15 +24,15 @@ productRouter.delete('/:id', (req, res) => {
   });
 });
 
-//seed
-//const seed = require('../models/seed')
-// productRouter.get('/seed', (req, res) => {
-//   Product.deleteMany({}, (error, allProducts) => { });
+//seeder
+const seed = require('../models/seed');
+productRouter.get('/seed', (req, res) => {
+  Product.deleteMany({}, (error, allProducts) => { });
 
-//   Product.create(seed, (error, data) => {
-//     res.redirect('/products');
-//   });
-// });
+  Product.create(seed, (error, data) => {
+    res.redirect('/products');
+  });
+});
 
 //update
 productRouter.put('/:id', (req, res) => {

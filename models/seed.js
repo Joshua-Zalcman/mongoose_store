@@ -36,5 +36,30 @@ module.exports = [
     img: 'https://cdn.pixabay.com/photo/2017/04/28/17/46/hat-2268994_960_720.png',
     price: 5,
     qty: 65
-  }
+  }, {
+    name: 'Stone Hat',
+    description: 'Your crazy aunt called. She said buy this hat.',
+    img: 'https://cdn.pixabay.com/photo/2017/06/19/00/37/hat-2417796_960_720.png',
+    price: 14,
+    qty: 12
+  }, {
+    name: 'Wizard Hat',
+    description: 'Look, we tried...',
+    img: 'https://cdn.pixabay.com/photo/2018/05/03/12/16/hat-3371228_960_720.png',
+    price: 34,
+    qty: 10
+  }, {
+    name: 'Leopard Trash Hat',
+    description: 'This hat definitely makes a statement about you.',
+    img: 'https://cdn.pixabay.com/photo/2017/08/26/16/10/clothing-2683467_960_720.png',
+    price: 66,
+    qty: 4
+  }, {
+    name: 'Old Worn Hat',
+    description: 'We found this one in a park.',
+    img: 'https://cdn.pixabay.com/photo/2019/04/15/15/30/hat-4129572_960_720.png',
+    price: 17,
+    qty: 1
+  },
+
 ]

@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mongoose Store</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <%- include("./partials/head.ejs")%>
     <style>
       article {
         max-width: 360px;
@@ -16,19 +9,21 @@
       .card {
         margin: 0 auto;
       }
-      img {
-        background-color: white;
-      }
     </style>
   </head>
   <body>
     <div class="container valign center">
+      <h1 class="white-text">Wonky Hats</h1>
       <div class="row">
         <div class="col s12">
           <br />
           <article class="card hoverable cyan lighten-4">
             <div class="card-image">
-              <img src="<%=product.img%>" alt="<%=product.name%>" />
+              <img
+                class="white"
+                src="<%=product.img%>"
+                alt="<%=product.name%>"
+              />
               <%if(product.qty>0){%>
 
               <form
@@ -100,7 +95,7 @@
                 <div class="col s8">
                   <a
                     href="/products/<%=product._id%>/edit"
-                    class="btn btn-block"
+                    class="btn btn-block yellow darken-4"
                     >Edit</a
                   >
                 </div>
@@ -108,10 +103,10 @@
             </div>
             <br />
           </article>
-          <br />
         </div>
       </div>
       <a href="/products" class="btn">Go Back</a>
     </div>
+    <br />
   </body>
 </html>
